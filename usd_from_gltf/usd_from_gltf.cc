@@ -16,8 +16,10 @@
 
 #include <stdio.h>
 #include "args.h"  // NOLINT: Silence relative path warning.
+#include "stb_image.h"  // NOLINT: Silence relative path warning.
 #include "common/logging.h"
 #include "convert/package.h"
+
 
 int main(int argc, char* argv[]) {
   GltfPrintLogger logger;

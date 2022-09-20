@@ -12,10 +12,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-find_package(json)
-if (NOT json_FOUND)
+find_path (json_INCLUDE_DIR json.hpp HINTS "${json_DIR}")
+
+if (NOT json_INCLUDE_DIR)
   message(FATAL_ERROR "JSON package not found.")
-endif (NOT json_FOUND)
+endif()
 
 include_directories(
   ${json_INCLUDE_DIR}

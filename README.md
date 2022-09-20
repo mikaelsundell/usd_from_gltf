@@ -38,13 +38,22 @@ When converting glTF->USD->DCC, Apple's USDPython tools will better preserve the
 *   *(Optional)* Build test data. See ufginstall script output for the ufgtest.py command.
 *   *(Optional)* Set `PXR_PLUGINPATH_NAME` so the glTF import plugin is available in Usdview. See ufginstall script output for the path.
 
+## Using CMake Tool
+
+For CMake tool builds without ufginstall.py
+
+    cmake ../ 
+        -DCMAKE_PREFIX_PATH=${BUILD} 
+        -DUSD_DIR=${USD_BUILD}    
+        -Djson_INCLUDE_DIR=${JSON_BUILD}/include/nlohmann
+        -Dtclap_INCLUDE_DIR=${TCLAP_BUILD}/include 
+        -DCMAKE_MODULE_PATH=${UFG_BUILD}/cmake/modules  
 
 ## Using the Command-Line Tool
 
 The command-line tool is called `usd_from_gltf` and is in the `{UFG_BUILD}/bin` directory. Run it with (use --help for full documentation):
 
     usd_from_gltf <source.gltf> <destination.usdz>
-
 
 ## Batch Converting and Testing
 

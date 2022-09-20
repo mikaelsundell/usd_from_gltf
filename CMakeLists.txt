@@ -27,7 +27,7 @@ endif (EXISTS "${USD_DIR}/lib/python/")
 set(USD_INCLUDE_DIRS
   "${USD_DIR}/include"
   "${USD_DIR}/include/boost-1_61"
-# Visual Studio 2017 requires boost 1.65.1.
+  # Visual Studio 2017 requires boost 1.65.1.
   "${USD_DIR}/include/boost-1_65_1"
   ${Python_INCLUDE_DIRS}
 )
@@ -54,16 +54,16 @@ elseif (APPLE)
 set(USD_LIBS
   ${Python_LIBRARIES}
   -lpthread
-  libgf.dylib
-  libplug.dylib
-  libsdf.dylib
-  libtf.dylib
-  libusd.dylib
-  libusdGeom.dylib
-  libusdShade.dylib
-  libusdSkel.dylib
-  libusdUtils.dylib
-  libvt.dylib
+  libusd_gf.dylib
+  libusd_plug.dylib
+  libusd_sdf.dylib
+  libusd_tf.dylib
+  libusd_usd.dylib
+  libusd_usdGeom.dylib
+  libusd_usdShade.dylib
+  libusd_usdSkel.dylib
+  libusd_usdUtils.dylib
+  libusd_vt.dylib
 )
 if (Python_FOUND)
   list(APPEND USD_LIBS "${USD_DIR}/lib/libboost_python.dylib")
@@ -131,7 +131,7 @@ add_subdirectory(convert)
 add_subdirectory(gltf)
 add_subdirectory(process)
 add_subdirectory(usd_from_gltf)
-add_subdirectory(ufg_plugin)
+#add_subdirectory(ufg_plugin)
 
 install(EXPORT ufglib DESTINATION lib/ufg)
 install(FILES ufg-config.cmake DESTINATION .)

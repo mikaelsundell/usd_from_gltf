@@ -12,10 +12,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-find_package(tclap)
-if (NOT tclap_FOUND)
+find_path (tclap_INCLUDE_DIR Arg.h HINTS "${dclap_DIR}")
+
+if (NOT tclap_INCLUDE_DIR)
   message(FATAL_ERROR "TCLAP package not found.")
-endif (NOT tclap_FOUND)
+endif()
 
 include_directories(
   ..
@@ -27,6 +28,7 @@ add_executable(usd_from_gltf
   args.cc
   args.h
   usd_from_gltf.cc
+  stb_image.cc
 )
 
 target_link_libraries(usd_from_gltf
